@@ -161,12 +161,9 @@ function rollDicePool(){
   let netSuccess = results[symbols.success] - results[symbols.failure];
   let netAdvantage = results[symbols.advantage] - results[symbols.threat];
   let netForce = results[symbols.light] - results[symbols.dark];
-  console.log("Successes: %d\nFailures: %d\nAdvantages: %d\nThreats: %d\nTriumphs: %d\nDispairs: %d\nLightside: %d\nDarkside: %d\n", 
-              results[symbols.success], results[symbols.failure], results[symbols.advantage], results[symbols.threat], 
-              results[symbols.triumph], results[symbols.dispair], results[symbols.light], results[symbols.dark]);
-  console.log("Net roll: %d %s, %d %s, %d Triumphs, %d Dispairs, %d %s\n", 
-              Math.abs(netSuccess), netSuccess >= 0 ? "Successes" : "Failures", 
-              Math.abs(netAdvantage), netAdvantage >= 0 ? "Advantages" : "Threats", 
-              results[symbols.triumph], results[symbols.dispair],
-              Math.abs(netForce), netForce > 0 ? "Lightside of the Force" : (netForce == 0 ? "Neutral Force" : "Darkside of the Force"));
+  let totalsString = "Successes: ${results[symbols.success]}\nFailures: ${results[symbols.failure]}\nAdvantages: ${results[symbols.advantage]}\nThreats: ${results[symbols.threat]}\nTriumphs: ${results[symbols.triumph]}\nDispairs: ${results[symbols.dispair]}\nLightside: ${results[symbols.light}\nDarkside: ${results[symbols.dark}\n";
+  console.log(totalsString);
+  let netString = "Net roll: ${Math.abs(netSuccess)} ${netSuccess >= 0 ? 'Successes' : 'Failures'}, ${Math.abs(netAdvantage)} ${netAdvantage >= 0 ? 'Advantages' : 'Threats'}, ${results[symbols.triumph]} Triumphs, ${results[symbols.dispair]} Dispairs, ${Math.abs(netForce)} ${netForce > 0 ? 'Lightside of the Force' : (netForce == 0 ? 'Neutral Force' : 'Darkside of the Force')}\n";
+  console.log(netString);
+  document.getElementById('myTextarea').value = totalsString + netString;
 }
