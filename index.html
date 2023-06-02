@@ -1,0 +1,38 @@
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./initiativeTracker.js"></script>
+</head>
+<body bgcolor="#000000">
+  <h1>Initiative Tracker</h2>
+  <ol id="initiativeList">
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+  <li>Fourth</li>
+  </ol>
+  <form>
+    <label>Name: </label><input type="text" id="name"><br>
+    <label>Initiative: </label><input type="number" id="initiative"><br>
+    <label>Roll Initiative? </label><input type="checkbox" id="roll"><br>
+    <input type="button" value="Add" onclick="addToInitiativeOrder()">
+    &emsp&emsp&emsp&emsp
+    <input type="button" value="Reset" onclick="resetInitiativeOrder()">
+  </form>
+  <button onclick="advanceList()">Next Turn</button>
+  <h2>Instructions:</h2>
+  <p>
+    Type the name of the player into the name field and their initiative roll into the initiative field, then press the add button to add the player to the initiative list.
+    As players are added they will appear in an ordered list on the webpage. The player whose turn it currently is will be highlighted.
+    To have the computer roll initiative for the player, or for a monster, check the roll initiative check box. You can clear the initiative order by pressing the reset button.
+    Use the next turn button to advance the highlighting to the next player on the list.
+  </p>
+</body>
