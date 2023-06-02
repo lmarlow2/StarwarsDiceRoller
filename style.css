@@ -1,4 +1,11 @@
-h1, h2, th, td {
+th, td {
+  color: #ffffff;
+  margin: auto;
+  width: 50%;
+  border: 3px solid #ffffff;
+  padding: 10px;}
+
+h1, h2 {
   color: #ffffff;
 }
 
