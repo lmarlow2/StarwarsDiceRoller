@@ -1,3 +1,71 @@
+class die {
+  static const symbols = {
+    none: 0,
+    success: 1,
+    failure: 2,
+    advantage: 3,
+    threat: 4,
+    triumph: 5,
+    dispair: 6,
+    light: 7,
+    dark: 8
+  }
+
+  constructor(color) {
+    switch(color){
+      case "green":
+        this.sides = [
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.advantage, die.symbols.advantage],
+          [die.symbols.success, die.symbols.advantage],
+          [die.symbols.success, die.symbols.success],
+          [die.symbols.success, die.symbols.none],
+          [die.symbols.success, die.symbols.none],
+          [die.symbols.advantage, die.symbols.none],
+          [die.symbols.advantage, die.symbols.none]
+        ];
+        break;
+      case "purple":
+        this.sides = [
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.threat, die.symbols.threat],
+          [die.symbols.failure, die.symbols.none],
+          [die.symbols.threat, die.symbols.none],
+          [die.symbols.failure, die.symbols.threat],
+          [die.symbols.threat, die.symbols.none],
+          [die.symbols.threat, die.symbols.none],
+          [die.symbols.failure, die.symbols.failure]
+        ];
+        break;
+      case "yellow":
+        this.sides = [
+          [die.symbols.none, die.symbols.none],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ];
+        break;
+      case "red":
+        break;
+      case "blue":
+        break;
+      case "black":
+        break;
+      case "force":
+        break;
+      default:
+    }
+  }
+}
+
 var initiativeOrder = [];
 var currentInitiative = 0;
 
