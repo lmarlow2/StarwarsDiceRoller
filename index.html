@@ -26,13 +26,22 @@
     <tr style="position: relative; top: -60px; z-index: -1;">
       <td><span style="color: #0000ff; font-size: 189px;" title="Blue Six-Sided Boost Die">■</span></td>
       <td><span style="color: #000000; font-size: 189px;" title="Black Six-Sided Setback Die">■</span></td>
-      <td><span style="color: #00ff00; font-size: 95px;" title="Green Eight-Sided Ability Die">♦</span></td>
-      <td><span style="color: #ff00ff; font-size: 95px;" title="Purple Eight-Sided Difficulty Die">♦</span></td>
-      <td><span style="color: #ffff00; font-size: 135px;" title="Yellow Twelve-Sided Proficiency Die">⬢</span></td>
-      <td><span style="color: #ff0000; font-size: 135px;" title="Red Twelve-Sided Challenge Die">⬢</span></td>
-      <td><span style="color: #ffffff; font-size: 135px;" title="White Twelve-Sided Force Die">⬢</span></td>
+      <td><span style="color: #00ff00; font-size: 135px;" title="Green Eight-Sided Ability Die">◆</span></td>
+      <td><span style="color: #ff00ff; font-size: 135px;" title="Purple Eight-Sided Difficulty Die">◆</span></td>
+      <td><span style="color: #ffff00; font-size: 120px;" title="Yellow Twelve-Sided Proficiency Die">⬢</span></td>
+      <td><span style="color: #ff0000; font-size: 120px;" title="Red Twelve-Sided Challenge Die">⬢</span></td>
+      <td><span style="color: #ffffff; font-size: 120px;" title="White Twelve-Sided Force Die">⬢</span></td>
     </tr>
-    <tr style="position: relative; top: -120px;">
+        <tr style="position: relative; top: -180px;">
+      <td style="color: #505050;" id="numBoost">0</td>
+      <td style="color: #505050;" id="numSetback">0</td>
+      <td style="color: #505050;" id="numAbility">0</td>
+      <td style="color: #505050;" id="numDifficulty">0</td>
+      <td style="color: #505050;" id="numProficiency">0</td>
+      <td style="color: #505050;" id="numChallenge">0</td>
+      <td style="color: #505050;" id="numForce">0</td>
+    </tr>
+    <tr style="position: relative; top: -140px;">
       <td><input type="button" value="Remove Boost Die" onclick="removeDiceFromPool(types.boost)"></td>
       <td><input type="button" value="Remove Setback Die" onclick="removeDiceFromPool(types.setback)"></td>
       <td><input type="button" value="Remove Ability Die" onclick="removeDiceFromPool(types.ability)"></td>
