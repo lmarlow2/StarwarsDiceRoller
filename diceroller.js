@@ -150,7 +150,7 @@ function rollDicePool(){
   let results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   for(let dicetype = 0; dicetype < 7; dicetype++){
     if(dicepool[dicetype] > 0){
-      let d = die(dicetype);
+      let d = new die(dicetype);
       for(let rolls = 0; rolls < dicepool[dicetype]; rolls++){
         let side = d.roll();
         results[side[0]]++;
@@ -161,7 +161,7 @@ function rollDicePool(){
   let netSuccess = results[symbols.success] - results[symbols.failure];
   let netAdvantage = results[symbols.advantage] - results[symbols.threat];
   let netForce = results[symbols.light] - results[symbols.dark];
-  console.log("Successes: %d\nFailures: %d\nAdvantages: %d\nThreats: %d\n, Triumphs: %d\nDispairs: %d\nLightside: %d\nDarkside: %d\n", 
+  console.log("Successes: %d\nFailures: %d\nAdvantages: %d\nThreats: %d\nTriumphs: %d\nDispairs: %d\nLightside: %d\nDarkside: %d\n", 
               results[symbols.success], results[symbols.failure], results[symbols.advantage], results[symbols.threat], 
               results[symbols.triumph], results[symbols.dispair], results[symbols.light], results[symbols.dark]);
   console.log("Net roll: %d %s, %d %s, %d Triumphs, %d Dispairs, %d %s\n", 
