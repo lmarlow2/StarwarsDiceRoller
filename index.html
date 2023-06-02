@@ -9,25 +9,19 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./style.css">
-  <script src="./initiativeTracker.js"></script>
+  <script src="./diceroller.js"></script>
 </head>
 <body bgcolor="#000000">
-  <h1>Initiative Tracker</h2>
-  <ol id="initiativeList">
-  <li>First</li>
-  <li>Second</li>
-  <li>Third</li>
-  <li>Fourth</li>
-  </ol>
-  <form>
-    <label>Name: </label><input type="text" id="name"><br>
-    <label>Initiative: </label><input type="number" id="initiative"><br>
-    <label>Roll Initiative? </label><input type="checkbox" id="roll"><br>
-    <input type="button" value="Add" onclick="addToInitiativeOrder()">
-    &emsp&emsp&emsp&emsp
-    <input type="button" value="Reset" onclick="resetInitiativeOrder()">
-  </form>
-  <button onclick="advanceList()">Next Turn</button>
+  <h1>Starwars Dice Roller</h2>
+  <input type="button" value="Add Boost Die" onclick="addDiceToPool(die.symbols.boost)">
+  <input type="button" value="Add Setback Die" onclick="addDiceToPool(die.symbols.setback)">
+  <input type="button" value="Add Ability Die" onclick="addDiceToPool(die.symbols.ability)">
+  <input type="button" value="Add Difficulty Die" onclick="addDiceToPool(die.symbols.difficulty)">
+  <input type="button" value="Add Proficiency Die" onclick="addDiceToPool(die.symbols.proficiency)">
+  <input type="button" value="Add Challenge Die" onclick="addDiceToPool(die.symbols.challenge)">
+  <input type="button" value="Add Force Die" onclick="addDiceToPool(die.symbols.force)">
+  <input type="button" value="Roll" onclick="rollDicePool()">
+  <input type="button" value="Reset" onclick="resetDicePool()">
   <h2>Instructions:</h2>
   <p>
     Type the name of the player into the name field and their initiative roll into the initiative field, then press the add button to add the player to the initiative list.
