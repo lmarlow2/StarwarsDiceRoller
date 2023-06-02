@@ -1,4 +1,14 @@
 class die {
+  static const types = {
+    boost: 0,
+    setback: 1,
+    ability: 2,
+    difficulty: 3,
+    proficiency: 4,
+    challenge: 5,
+    force: 6
+  }
+
   static const symbols = {
     none: 0,
     success: 1,
@@ -11,9 +21,9 @@ class die {
     dark: 8
   }
 
-  constructor(color) {
-    switch(color){
-      case "green":
+  constructor(type){
+    switch(type){
+      case die.types.ability:
         this.sides = [
           [die.symbols.none, die.symbols.none],
           [die.symbols.advantage, die.symbols.advantage],
@@ -24,8 +34,9 @@ class die {
           [die.symbols.advantage, die.symbols.none],
           [die.symbols.advantage, die.symbols.none]
         ];
+        this.numSides = 8;
         break;
-      case "purple":
+      case die.types.difficulty:
         this.sides = [
           [die.symbols.none, die.symbols.none],
           [die.symbols.threat, die.symbols.threat],
@@ -36,79 +47,118 @@ class die {
           [die.symbols.threat, die.symbols.none],
           [die.symbols.failure, die.symbols.failure]
         ];
+        this.numSides = 8;
         break;
-      case "yellow":
+      case die.types.proficiency:
         this.sides = [
           [die.symbols.none, die.symbols.none],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          []
+          [die.symbols.advantage, die.symbols.none],
+          [die.symbols.success, die.symbols.none],
+          [die.symbols.success, die.symbols.none],
+          [die.symbols.success, die.symbols.advantage],
+          [die.symbols.success, die.symbols.advantage],
+          [die.symbols.success, die.symbols.advantage],
+          [die.symbols.success, die.symbols.success],
+          [die.symbols.success, die.symbols.success],
+          [die.symbols.advantage, die.symbols.advantage],
+          [die.symbols.advantage, die.symbols.advantage],
+          [die.symbols.triumph, die.symbols.none]
         ];
+        this.numSides = 12;
         break;
-      case "red":
+      case die.types.challenge:
+        this.sides = [
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.failure, die.symbols.none],
+          [die.symbols.failure, die.symbols.none],
+          [die.symbols.failure, die.symbols.failure],
+          [die.symbols.failure, die.symbols.failure],
+          [die.symbols.failure, die.symbols.threat],
+          [die.symbols.failure, die.symbols.threat],
+          [die.symbols.threat, die.symbols.none],
+          [die.symbols.threat, die.symbols.none],
+          [die.symbols.threat, die.symbols.threat],
+          [die.symbols.threat, die.symbols.threat],
+          [die.symbols.dispair, die.symbols.none]
+        ];
+        this.numSides = 12;
         break;
-      case "blue":
+      case die.types.boost:
+        this.sides = [
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.advantage, die.symbols.advantage],
+          [die.symbols.advantage, die.symbols.none],
+          [die.symbols.success, die.symbols.advantage],
+          [die.symbols.success, die.symbols.none]
+        ];
+        this.numSides = 6;
         break;
-      case "black":
+      case die.types.setback:
+        this.sides = [
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.none, die.symbols.none],
+          [die.symbols.failure, die.symbols.none],
+          [die.symbols.failure, die.symbols.none],
+          [die.symbols.threat, die.symbols.none],
+          [die.symbols.threat, die.symbols.none]
+        ];
+        this.numSides = 6;
         break;
-      case "force":
+      case die.types.force:
+        this.sides = [
+          [die.symbols.dark, die.symbols.none],
+          [die.symbols.dark, die.symbols.none],
+          [die.symbols.dark, die.symbols.none],
+          [die.symbols.dark, die.symbols.none],
+          [die.symbols.dark, die.symbols.none],
+          [die.symbols.dark, die.symbols.none],
+          [die.symbols.dark, die.symbols.dark],
+          [die.symbols.light, die.symbols.none],
+          [die.symbols.light, die.symbols.none],
+          [die.symbols.light, die.symbols.light],
+          [die.symbols.light, die.symbols.light],
+          [die.symbols.light, die.symbols.light]
+        ];
+        this.numSides = 12;
         break;
       default:
+        console.log("Unrecognized diece type!");
     }
   }
-}
 
-var initiativeOrder = [];
-var currentInitiative = 0;
-
-function removeFromInitiativeOrder(index){
-  if(currentInitiative > index) currentInitiative--;
-  if(currentInitiative == initiativeOrder.length - 1) currentInitiative = 0;
-  initiativeOrder.splice(index, 1);
-  displayInitiativeList();
-}
-
-function displayInitiativeList(){
-  let list = "";
-  for(let k = 0; k < initiativeOrder.length; k++){
-    list += "<li>";
-    if(k == currentInitiative)
-      list += "<mark>";
-    list += initiativeOrder[k].name;
-    if(k == currentInitiative)
-      list += "</mark>";
-    list += "    <button onclick='removeFromInitiativeOrder(" + k + ")'>Remove</button>";
-    list += "</li>";
+  roll(){
+    return this.sides[Math.floor(Math.random() * this.numSides)];
   }
-  document.getElementById("initiativeList").innerHTML = list;
 }
 
-function compare(a,b){ return b.initiative - a.initiative; }
+var dicepool = [0, 0, 0, 0, 0, 0, 0];
 
-function addToInitiativeOrder(){
-  if(document.getElementById("roll").checked){
-    document.getElementById("initiative").value = Math.floor(Math.random() * 20);
+function addDiceToPool(type){
+  dicepool[type]++;
+}
+
+function rollDicePool(){
+  let results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for(let dicetype = 0; dicetype < 7; dicetype++){
+    if(dicepool[dicetype] > 0){
+      let d = die(dicetype);
+      for(let rolls = 0; rolls < dicepool[dicetype]; rolls++){
+        let side = d.roll();
+        results[side[0]]++;
+        results[side[1]]++;
+      }
+    }
   }
-  initiativeOrder.push({name:document.getElementById("name").value, initiative:document.getElementById("initiative").value});
-  initiativeOrder.sort(compare);
-  displayInitiativeList();
-}
-
-function resetInitiativeOrder(){
-  initiativeOrder = [];
-  currentInitiative = 0;
-  document.getElementById("initiativeList").innerHTML = "";
-}
-
-function advanceList(){
-  currentInitiative = (currentInitiative + 1) % initiativeOrder.length;
-  displayInitiativeList();
+  let netSuccess = results[die.symbols.success] - results[die.symbols.failure];
+  let netAdvantage = results[die.symbols.advantage] - results[die.symbols.threat];
+  let netForce = results[die.symbols.light] - results[die.symbols.dark];
+  console.log("Successes: %d\nFailures: %d\nAdvantages: %d\nThreats: %d\n, Triumphs: %d\nDispairs: %d\nLightside: %d\nDarkside: %d\n", 
+              results[die.symbols.success], results[die.symbols.failure], results[die.symbols.advantage], results[die.symbols.threat], 
+              results[die.symbols.triumph], results[die.symbols.dispair], results[die.symbols.light], results[die.symbols.dark]);
+  console.log("Net roll: %d %s, %d %s, %d Triumphs, %d Dispairs, %d %s\n", 
+              Math.abs(netSuccess), netSuccess >= 0 ? "Successes" : "Failures", 
+              Math.abs(netAdvantage), netAdvantage >= 0 ? "Advantages" : "Threats", 
+              results[die.symbols.triumph], results[die.symbols.dispair],
+              Math.abs(netForce), netForce > 0 ? "Lightside of the Force" : (netForce == 0 ? "Neutral Force" : "Darkside of the Force"));
 }
