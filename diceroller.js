@@ -138,6 +138,14 @@ function addDiceToPool(type){
   dicepool[type]++;
 }
 
+function removeDiceFromPool(type){
+  dicepool[type]--;
+}
+
+function resetDicePool(){
+  dicepool = [0, 0, 0, 0, 0, 0, 0]; 
+}
+
 function rollDicePool(){
   let results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   for(let dicetype = 0; dicetype < 7; dicetype++){
