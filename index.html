@@ -3,13 +3,26 @@
 </head>
 <body bgcolor="#000000">
   <h1>Starwars Dice Roller</h2>
-  <input type="button" value="Add Boost Die" onclick="addDiceToPool(types.boost)">
-  <input type="button" value="Add Setback Die" onclick="addDiceToPool(types.setback)">
-  <input type="button" value="Add Ability Die" onclick="addDiceToPool(types.ability)">
-  <input type="button" value="Add Difficulty Die" onclick="addDiceToPool(types.difficulty)">
-  <input type="button" value="Add Proficiency Die" onclick="addDiceToPool(types.proficiency)">
-  <input type="button" value="Add Challenge Die" onclick="addDiceToPool(types.challenge)">
-  <input type="button" value="Add Force Die" onclick="addDiceToPool(types.force)">
+  <table>
+    <tr>
+      <td><input type="button" value="Add Boost Die" onclick="addDiceToPool(types.boost)"></td>
+      <td><input type="button" value="Add Setback Die" onclick="addDiceToPool(types.setback)"></td>
+      <td><input type="button" value="Add Ability Die" onclick="addDiceToPool(types.ability)"></td>
+      <td><input type="button" value="Add Difficulty Die" onclick="addDiceToPool(types.difficulty)"></td>
+      <td><input type="button" value="Add Proficiency Die" onclick="addDiceToPool(types.proficiency)"></td>
+      <td><input type="button" value="Add Challenge Die" onclick="addDiceToPool(types.challenge)"></td>
+      <td><input type="button" value="Add Force Die" onclick="addDiceToPool(types.force)"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Remove Boost Die" onclick="removeDiceFromPool(types.boost)"></td>
+      <td><input type="button" value="Remove Setback Die" onclick="removeDiceFromPool(types.setback)"></td>
+      <td><input type="button" value="Remove Ability Die" onclick="removeDiceFromPool(types.ability)"></td>
+      <td><input type="button" value="Remove Difficulty Die" onclick="removeDiceFromPool(types.difficulty)"></td>
+      <td><input type="button" value="Remove Proficiency Die" onclick="removeDiceFromPool(types.proficiency)"></td>
+      <td><input type="button" value="Remove Challenge Die" onclick="removeDiceFromPool(types.challenge)"></td>
+      <td><input type="button" value="Remove Force Die" onclick="removeDiceFromPool(types.force)"></td>
+    </tr>
+  </table>
   <input type="button" value="Roll" onclick="rollDicePool()">
   <input type="button" value="Reset" onclick="resetDicePool()">
   <h2>Instructions:</h2>
