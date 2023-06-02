@@ -8,62 +8,99 @@
     <tr>
       <th>Boost Die</th>
       <th>Setback Die</th>
-      <th>Ability Die</th>
-      <th>Difficulty Die</th>
-      <th>Proficiency Die</th>
-      <th>Challenge Die</th>
-      <th>Force Die</th>
     </tr>
     <tr>
       <td><input type="button" value="Add Boost Die" onclick="addDiceToPool(types.boost)"></td>
       <td><input type="button" value="Add Setback Die" onclick="addDiceToPool(types.setback)"></td>
-      <td><input type="button" value="Add Ability Die" onclick="addDiceToPool(types.ability)"></td>
-      <td><input type="button" value="Add Difficulty Die" onclick="addDiceToPool(types.difficulty)"></td>
-      <td><input type="button" value="Add Proficiency Die" onclick="addDiceToPool(types.proficiency)"></td>
-      <td><input type="button" value="Add Challenge Die" onclick="addDiceToPool(types.challenge)"></td>
-      <td><input type="button" value="Add Force Die" onclick="addDiceToPool(types.force)"></td>
     </tr>
     <tr style="position: relative; top: -60px; z-index: -1;">
       <td><span style="color: #0000ff; font-size: 189px;" title="Blue Six-Sided Boost Die">■</span></td>
       <td><span style="color: #000000; font-size: 189px;" title="Black Six-Sided Setback Die">■</span></td>
-      <td><span style="color: #00ff00; font-size: 135px;" title="Green Eight-Sided Ability Die">◆</span></td>
-      <td><span style="color: #ff00ff; font-size: 135px;" title="Purple Eight-Sided Difficulty Die">◆</span></td>
-      <td><span style="color: #ffff00; font-size: 120px;" title="Yellow Twelve-Sided Proficiency Die">⬢</span></td>
-      <td><span style="color: #ff0000; font-size: 120px;" title="Red Twelve-Sided Challenge Die">⬢</span></td>
-      <td><span style="color: #ffffff; font-size: 120px;" title="White Twelve-Sided Force Die">⬢</span></td>
     </tr>
-        <tr style="position: relative; top: -180px;">
+    <tr style="position: relative; top: -180px;">
       <td style="color: #ffffff;" id="numBoost">0</td>
       <td style="color: #ffffff;" id="numSetback">0</td>
-      <td style="color: #000000;" id="numAbility">0</td>
-      <td style="color: #000000;" id="numDifficulty">0</td>
-      <td style="color: #000000;" id="numProficiency">0</td>
-      <td style="color: #000000;" id="numChallenge">0</td>
-      <td style="color: #000000;" id="numForce">0</td>
     </tr>
     <tr style="position: relative; top: -140px;">
       <td><input type="button" value="Remove Boost Die" onclick="removeDiceFromPool(types.boost)"></td>
       <td><input type="button" value="Remove Setback Die" onclick="removeDiceFromPool(types.setback)"></td>
+    </tr>
+    
+    <tr>
+      <th>Ability Die</th>
+      <th>Difficulty Die</th>
+    </tr>
+    <tr>
+      <td><input type="button" value="Add Ability Die" onclick="addDiceToPool(types.ability)"></td>
+      <td><input type="button" value="Add Difficulty Die" onclick="addDiceToPool(types.difficulty)"></td>
+    </tr>
+    <tr style="position: relative; top: -60px; z-index: -1;">
+      <td><span style="color: #00ff00; font-size: 135px;" title="Green Eight-Sided Ability Die">◆</span></td>
+      <td><span style="color: #ff00ff; font-size: 135px;" title="Purple Eight-Sided Difficulty Die">◆</span></td>
+    </tr>
+    <tr style="position: relative; top: -180px;">
+      <td style="color: #000000;" id="numAbility">0</td>
+      <td style="color: #000000;" id="numDifficulty">0</td>
+    </tr>
+    <tr style="position: relative; top: -140px;">
       <td><input type="button" value="Remove Ability Die" onclick="removeDiceFromPool(types.ability)"></td>
       <td><input type="button" value="Remove Difficulty Die" onclick="removeDiceFromPool(types.difficulty)"></td>
+    </tr>
+    
+    <tr>
+      <th>Proficiency Die</th>
+      <th>Challenge Die</th>
+    </tr>
+    <tr>
+      <td><input type="button" value="Add Proficiency Die" onclick="addDiceToPool(types.proficiency)"></td>
+      <td><input type="button" value="Add Challenge Die" onclick="addDiceToPool(types.challenge)"></td>
+    </tr>
+    <tr style="position: relative; top: -60px; z-index: -1;">
+      <td><span style="color: #ffff00; font-size: 120px;" title="Yellow Twelve-Sided Proficiency Die">⬢</span></td>
+      <td><span style="color: #ff0000; font-size: 120px;" title="Red Twelve-Sided Challenge Die">⬢</span></td>
+    </tr>
+    <tr style="position: relative; top: -180px;">
+      <td style="color: #000000;" id="numProficiency">0</td>
+      <td style="color: #000000;" id="numChallenge">0</td>
+    </tr>
+    <tr style="position: relative; top: -140px;">
       <td><input type="button" value="Remove Proficiency Die" onclick="removeDiceFromPool(types.proficiency)"></td>
       <td><input type="button" value="Remove Challenge Die" onclick="removeDiceFromPool(types.challenge)"></td>
+    </tr>
+    
+    <tr>
+      <th>Force Die</th>
+    </tr>
+    <tr>
+      <td><input type="button" value="Add Force Die" onclick="addDiceToPool(types.force)"></td>
+    </tr>
+    <tr style="position: relative; top: -60px; z-index: -1;">
+      <td><span style="color: #ffffff; font-size: 120px;" title="White Twelve-Sided Force Die">⬢</span></td>
+    </tr>
+    <tr style="position: relative; top: -180px;">
+      <td style="color: #000000;" id="numForce">0</td>
+    </tr>
+    <tr style="position: relative; top: -140px;">
       <td><input type="button" value="Remove Force Die" onclick="removeDiceFromPool(types.force)"></td>
     </tr>
   </table>
+  
   <div style="padding-bottom: 20px;">
     <input type="button" value="Roll" onclick="rollDicePool()">
     <input type="button" value="Reset" onclick="resetDicePool()">
   </div>
+  
   <div>
     <textarea id="resultText" rows="10" style="width: 600px; max-width: 600px;">Results will appear here...</textarea>
   </div>
+  
   <h2>Instructions:</h2>
   <p>
-    Type the name of the player into the name field and their initiative roll into the initiative field, then press the add button to add the player to the initiative list.
-    As players are added they will appear in an ordered list on the webpage. The player whose turn it currently is will be highlighted.
-    To have the computer roll initiative for the player, or for a monster, check the roll initiative check box. You can clear the initiative order by pressing the reset button.
-    Use the next turn button to advance the highlighting to the next player on the list.
+    Use the add and remove buttons for each of the various dice types to build your dice pool. 
+    As you add or remove dice the number inside each colored die will update to inform you of how many of each type of die you have added to your pool. 
+    When you have finished assembling your dice pool click the roll button to roll all of the dice in the pool. 
+    The total and net results of your dice rolls will be displayed in the text area. 
+    Below you can see a table which breaks down the statistics for various dice pools.
   </p>
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0ecaaa28-9b60-4043-8393-b34c194930ef/deq521x-719b69c9-0d3c-4817-ade3-d05861cbff38.jpg/v1/fill/w_1280,h_1280,q_75,strp/star_wars_edge_of_the_empire_dice_roll_probability_by_cryptic_haze_deq521x-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzBlY2FhYTI4LTliNjAtNDA0My04MzkzLWIzNGMxOTQ5MzBlZlwvZGVxNTIxeC03MTliNjljOS0wZDNjLTQ4MTctYWRlMy1kMDU4NjFjYmZmMzguanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.zI97JNNo7-1Hsfss5T1En4Cuihb6O00xloNBstjt4pw" style="width: 600px;">
 </body>
