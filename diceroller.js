@@ -150,8 +150,10 @@ function addDiceToPool(type){
 }
 
 function removeDiceFromPool(type){
-  dicepool[type]--;
-  syncDicePoolCounters();
+  if(dicepool[type] > 0){
+    dicepool[type]--;
+    syncDicePoolCounters();
+  }
 }
 
 function resetDicePool(){
