@@ -1,124 +1,124 @@
+
+const types = {
+  boost: 0,
+  setback: 1,
+  ability: 2,
+  difficulty: 3,
+  proficiency: 4,
+  challenge: 5,
+  force: 6
+}
+
+const symbols = {
+  none: 0,
+  success: 1,
+  failure: 2,
+  advantage: 3,
+  threat: 4,
+  triumph: 5,
+  dispair: 6,
+  light: 7,
+  dark: 8
+}
 class die {
-  static const types = {
-    boost: 0,
-    setback: 1,
-    ability: 2,
-    difficulty: 3,
-    proficiency: 4,
-    challenge: 5,
-    force: 6
-  }
-
-  static const symbols = {
-    none: 0,
-    success: 1,
-    failure: 2,
-    advantage: 3,
-    threat: 4,
-    triumph: 5,
-    dispair: 6,
-    light: 7,
-    dark: 8
-  }
-
   constructor(type){
     switch(type){
-      case die.types.ability:
+      case types.ability:
         this.sides = [
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.advantage, die.symbols.advantage],
-          [die.symbols.success, die.symbols.advantage],
-          [die.symbols.success, die.symbols.success],
-          [die.symbols.success, die.symbols.none],
-          [die.symbols.success, die.symbols.none],
-          [die.symbols.advantage, die.symbols.none],
-          [die.symbols.advantage, die.symbols.none]
+          [symbols.none, symbols.none],
+          [symbols.advantage, symbols.advantage],
+          [symbols.success, symbols.advantage],
+          [symbols.success, symbols.success],
+          [symbols.success, symbols.none],
+          [symbols.success, symbols.none],
+          [symbols.advantage, symbols.none],
+          [symbols.advantage, symbols.none]
         ];
         this.numSides = 8;
         break;
-      case die.types.difficulty:
+      case types.difficulty:
         this.sides = [
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.threat, die.symbols.threat],
-          [die.symbols.failure, die.symbols.none],
-          [die.symbols.threat, die.symbols.none],
-          [die.symbols.failure, die.symbols.threat],
-          [die.symbols.threat, die.symbols.none],
-          [die.symbols.threat, die.symbols.none],
-          [die.symbols.failure, die.symbols.failure]
+          [symbols.none, symbols.none],
+          [symbols.threat, symbols.threat],
+          [symbols.failure, symbols.none],
+          [symbols.threat, symbols.none],
+          [symbols.failure, symbols.threat],
+          [symbols.threat, symbols.none],
+          [symbols.threat, symbols.none],
+          [symbols.failure, symbols.failure]
         ];
         this.numSides = 8;
         break;
-      case die.types.proficiency:
+      case types.proficiency:
         this.sides = [
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.advantage, die.symbols.none],
-          [die.symbols.success, die.symbols.none],
-          [die.symbols.success, die.symbols.none],
-          [die.symbols.success, die.symbols.advantage],
-          [die.symbols.success, die.symbols.advantage],
-          [die.symbols.success, die.symbols.advantage],
-          [die.symbols.success, die.symbols.success],
-          [die.symbols.success, die.symbols.success],
-          [die.symbols.advantage, die.symbols.advantage],
-          [die.symbols.advantage, die.symbols.advantage],
-          [die.symbols.triumph, die.symbols.none]
+          [symbols.none, symbols.none],
+          [symbols.advantage, symbols.none],
+          [symbols.success, symbols.none],
+          [symbols.success, symbols.none],
+          [symbols.success, symbols.advantage],
+          [symbols.success, symbols.advantage],
+          [symbols.success, symbols.advantage],
+          [symbols.success, symbols.success],
+          [symbols.success, symbols.success],
+          [symbols.advantage, symbols.advantage],
+          [symbols.advantage, symbols.advantage],
+          [symbols.triumph, symbols.none]
         ];
         this.numSides = 12;
         break;
-      case die.types.challenge:
+      case types.challenge:
         this.sides = [
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.failure, die.symbols.none],
-          [die.symbols.failure, die.symbols.none],
-          [die.symbols.failure, die.symbols.failure],
-          [die.symbols.failure, die.symbols.failure],
-          [die.symbols.failure, die.symbols.threat],
-          [die.symbols.failure, die.symbols.threat],
-          [die.symbols.threat, die.symbols.none],
-          [die.symbols.threat, die.symbols.none],
-          [die.symbols.threat, die.symbols.threat],
-          [die.symbols.threat, die.symbols.threat],
-          [die.symbols.dispair, die.symbols.none]
+          [symbols.none, symbols.none],
+          [symbols.failure, symbols.none],
+          [symbols.failure, symbols.none],
+          [symbols.failure, symbols.failure],
+          [symbols.failure, symbols.failure],
+          [symbols.failure, symbols.threat],
+          [symbols.failure, symbols.threat],
+          [symbols.threat, symbols.none],
+          [symbols.threat, symbols.none],
+          [symbols.threat, symbols.threat],
+          [symbols.threat, symbols.threat],
+          [symbols.dispair, symbols.none]
         ];
         this.numSides = 12;
         break;
-      case die.types.boost:
+      case types.boost:
         this.sides = [
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.advantage, die.symbols.advantage],
-          [die.symbols.advantage, die.symbols.none],
-          [die.symbols.success, die.symbols.advantage],
-          [die.symbols.success, die.symbols.none]
+          [symbols.none, symbols.none],
+          [symbols.none, symbols.none],
+          [symbols.advantage, symbols.advantage],
+          [symbols.advantage, symbols.none],
+          [symbols.success, symbols.advantage],
+          [symbols.success, symbols.none]
         ];
         this.numSides = 6;
         break;
-      case die.types.setback:
+      case types.setback:
         this.sides = [
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.none, die.symbols.none],
-          [die.symbols.failure, die.symbols.none],
-          [die.symbols.failure, die.symbols.none],
-          [die.symbols.threat, die.symbols.none],
-          [die.symbols.threat, die.symbols.none]
+          [symbols.none, symbols.none],
+          [symbols.none, symbols.none],
+          [symbols.failure, symbols.none],
+          [symbols.failure, symbols.none],
+          [symbols.threat, symbols.none],
+          [symbols.threat, symbols.none]
         ];
         this.numSides = 6;
         break;
-      case die.types.force:
+      case types.force:
         this.sides = [
-          [die.symbols.dark, die.symbols.none],
-          [die.symbols.dark, die.symbols.none],
-          [die.symbols.dark, die.symbols.none],
-          [die.symbols.dark, die.symbols.none],
-          [die.symbols.dark, die.symbols.none],
-          [die.symbols.dark, die.symbols.none],
-          [die.symbols.dark, die.symbols.dark],
-          [die.symbols.light, die.symbols.none],
-          [die.symbols.light, die.symbols.none],
-          [die.symbols.light, die.symbols.light],
-          [die.symbols.light, die.symbols.light],
-          [die.symbols.light, die.symbols.light]
+          [symbols.dark, symbols.none],
+          [symbols.dark, symbols.none],
+          [symbols.dark, symbols.none],
+          [symbols.dark, symbols.none],
+          [symbols.dark, symbols.none],
+          [symbols.dark, symbols.none],
+          [symbols.dark, symbols.dark],
+          [symbols.light, symbols.none],
+          [symbols.light, symbols.none],
+          [symbols.light, symbols.light],
+          [symbols.light, symbols.light],
+          [symbols.light, symbols.light]
         ];
         this.numSides = 12;
         break;
@@ -158,15 +158,15 @@ function rollDicePool(){
       }
     }
   }
-  let netSuccess = results[die.symbols.success] - results[die.symbols.failure];
-  let netAdvantage = results[die.symbols.advantage] - results[die.symbols.threat];
-  let netForce = results[die.symbols.light] - results[die.symbols.dark];
+  let netSuccess = results[symbols.success] - results[symbols.failure];
+  let netAdvantage = results[symbols.advantage] - results[symbols.threat];
+  let netForce = results[symbols.light] - results[symbols.dark];
   console.log("Successes: %d\nFailures: %d\nAdvantages: %d\nThreats: %d\n, Triumphs: %d\nDispairs: %d\nLightside: %d\nDarkside: %d\n", 
-              results[die.symbols.success], results[die.symbols.failure], results[die.symbols.advantage], results[die.symbols.threat], 
-              results[die.symbols.triumph], results[die.symbols.dispair], results[die.symbols.light], results[die.symbols.dark]);
+              results[symbols.success], results[symbols.failure], results[symbols.advantage], results[symbols.threat], 
+              results[symbols.triumph], results[symbols.dispair], results[symbols.light], results[symbols.dark]);
   console.log("Net roll: %d %s, %d %s, %d Triumphs, %d Dispairs, %d %s\n", 
               Math.abs(netSuccess), netSuccess >= 0 ? "Successes" : "Failures", 
               Math.abs(netAdvantage), netAdvantage >= 0 ? "Advantages" : "Threats", 
-              results[die.symbols.triumph], results[die.symbols.dispair],
+              results[symbols.triumph], results[symbols.dispair],
               Math.abs(netForce), netForce > 0 ? "Lightside of the Force" : (netForce == 0 ? "Neutral Force" : "Darkside of the Force"));
 }
