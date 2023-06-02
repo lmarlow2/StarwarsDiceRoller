@@ -1,4 +1,3 @@
-
 const types = {
   boost: 0,
   setback: 1,
@@ -20,6 +19,7 @@ const symbols = {
   light: 7,
   dark: 8
 }
+
 class die {
   constructor(type){
     switch(type){
@@ -34,7 +34,6 @@ class die {
           [symbols.advantage, symbols.none],
           [symbols.advantage, symbols.none]
         ];
-        this.numSides = 8;
         break;
       case types.difficulty:
         this.sides = [
@@ -47,7 +46,6 @@ class die {
           [symbols.threat, symbols.none],
           [symbols.failure, symbols.failure]
         ];
-        this.numSides = 8;
         break;
       case types.proficiency:
         this.sides = [
@@ -64,7 +62,6 @@ class die {
           [symbols.advantage, symbols.advantage],
           [symbols.triumph, symbols.none]
         ];
-        this.numSides = 12;
         break;
       case types.challenge:
         this.sides = [
@@ -81,7 +78,6 @@ class die {
           [symbols.threat, symbols.threat],
           [symbols.dispair, symbols.none]
         ];
-        this.numSides = 12;
         break;
       case types.boost:
         this.sides = [
@@ -92,7 +88,6 @@ class die {
           [symbols.success, symbols.advantage],
           [symbols.success, symbols.none]
         ];
-        this.numSides = 6;
         break;
       case types.setback:
         this.sides = [
@@ -103,7 +98,6 @@ class die {
           [symbols.threat, symbols.none],
           [symbols.threat, symbols.none]
         ];
-        this.numSides = 6;
         break;
       case types.force:
         this.sides = [
@@ -120,7 +114,6 @@ class die {
           [symbols.light, symbols.light],
           [symbols.light, symbols.light]
         ];
-        this.numSides = 12;
         break;
       default:
         console.log("Unrecognized diece type!");
@@ -128,7 +121,7 @@ class die {
   }
 
   roll(){
-    return this.sides[Math.floor(Math.random() * this.numSides)];
+    return this.sides[Math.random() * this.sides.length | 0];
   }
 }
 
