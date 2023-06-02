@@ -134,16 +134,29 @@ class die {
 
 var dicepool = [0, 0, 0, 0, 0, 0, 0];
 
+function syncDicePoolCounters(){
+  document.getElementById('numBoost').innerHTML = dicepool[types.boost];
+  document.getElementById('numSetback').innerHTML = dicepool[types.setback];
+  document.getElementById('numAbility').innerHTML = dicepool[types.ability];
+  document.getElementById('numDifficulty').innerHTML = dicepool[types.difficulty];
+  document.getElementById('numProficiency').innerHTML = dicepool[types.proficiency];
+  document.getElementById('numChallenge').innerHTML = dicepool[types.challenge];
+  document.getElementById('numForce').innerHTML = dicepool[types.force];
+}
+
 function addDiceToPool(type){
   dicepool[type]++;
+  syncDicePoolCounters();
 }
 
 function removeDiceFromPool(type){
   dicepool[type]--;
+  syncDicePoolCounters();
 }
 
 function resetDicePool(){
-  dicepool = [0, 0, 0, 0, 0, 0, 0]; 
+  dicepool = [0, 0, 0, 0, 0, 0, 0];
+  syncDicePoolCounters();
 }
 
 function rollDicePool(){
