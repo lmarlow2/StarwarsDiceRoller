@@ -6,6 +6,15 @@
   <h1>Starwars Dice Roller</h2>
   <table>
     <tr>
+      <th>Boost Die</th>
+      <th>Setback Die</th>
+      <th>Ability Die</th>
+      <th>Difficulty Die</th>
+      <th>Proficiency Die</th>
+      <th>Challenge Die</th>
+      <th>Force Die</th>
+    </tr>
+    <tr>
       <td><input type="button" value="Add Boost Die" onclick="addDiceToPool(types.boost)"></td>
       <td><input type="button" value="Add Setback Die" onclick="addDiceToPool(types.setback)"></td>
       <td><input type="button" value="Add Ability Die" onclick="addDiceToPool(types.ability)"></td>
@@ -13,6 +22,15 @@
       <td><input type="button" value="Add Proficiency Die" onclick="addDiceToPool(types.proficiency)"></td>
       <td><input type="button" value="Add Challenge Die" onclick="addDiceToPool(types.challenge)"></td>
       <td><input type="button" value="Add Force Die" onclick="addDiceToPool(types.force)"></td>
+    </tr>
+    <tr>
+      <td><span style="color: #0000ff; font-size: 135px" title="Blue Six-Sided Boost Die">■</span></td>
+      <td><span style="color: #000000; font-size: 135px" title="Black Six-Sided Setback Die">■</span></td>
+      <td><span style="color: #00ff00; font-size: 135px" title="Green Eight-Sided Ability Die">♦</span></td>
+      <td><span style="color: #ff00ff; font-size: 135px" title="Purple Eight-Sided Difficulty Die">♦</span></td>
+      <td><span style="color: #ffff00; font-size: 135px" title="Yellow Twelve-Sided Proficiency Die">⬢</span></td>
+      <td><span style="color: #ff0000; font-size: 135px" title="Red Twelve-Sided Challenge Die">⬢</span></td>
+      <td><span style="color: #ffffff; font-size: 135px" title="White Twelve-Sided Force Die">⬢</span></td>
     </tr>
     <tr>
       <td><input type="button" value="Remove Boost Die" onclick="removeDiceFromPool(types.boost)"></td>
