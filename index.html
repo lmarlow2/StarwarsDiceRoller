@@ -42,9 +42,13 @@
       <td><input type="button" value="Remove Force Die" onclick="removeDiceFromPool(types.force)"></td>
     </tr>
   </table>
-  <input type="button" value="Roll" onclick="rollDicePool()">
-  <input type="button" value="Reset" onclick="resetDicePool()">
-  <textarea id="resultText" style="max-width: 600px;">Results will appear here...</textarea>
+  <div>
+    <input type="button" value="Roll" onclick="rollDicePool()">
+    <input type="button" value="Reset" onclick="resetDicePool()">
+  </div>
+  <div>
+    <textarea id="resultText" style="max-width: 600px;">Results will appear here...</textarea>
+  </div>
   <h2>Instructions:</h2>
   <p>
     Type the name of the player into the name field and their initiative roll into the initiative field, then press the add button to add the player to the initiative list.
