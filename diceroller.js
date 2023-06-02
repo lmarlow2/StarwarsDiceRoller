@@ -163,7 +163,7 @@ function rollDicePool(){
   let netForce = results[symbols.light] - results[symbols.dark];
   let totalsString = "Successes: " + results[symbols.success] + "\nFailures: " + results[symbols.failure] + "\nAdvantages: " + results[symbols.advantage] + "\nThreats: " + results[symbols.threat] + "\nTriumphs: " + results[symbols.triumph] + "\nDispairs: " + results[symbols.dispair] + "\nLightside: " + results[symbols.light] + "\nDarkside: " + results[symbols.dark] + "\n";
   console.log(totalsString);
-  let netString = "Net roll: " + Math.abs(netSuccess) + " " + netSuccess >= 0 ? 'Successes' : 'Failures' + ", " + Math.abs(netAdvantage) + " " + netAdvantage >= 0 ? 'Advantages' : 'Threats' + ", " + results[symbols.triumph] + " Triumphs, " + results[symbols.dispair] + " Dispairs, " + Math.abs(netForce) + " " + netForce > 0 ? 'Lightside of the Force' : (netForce == 0 ? 'Neutral Force' : 'Darkside of the Force') + "\n";
+  let netString = "Net roll: " + Math.abs(netSuccess) + " " + (netSuccess >= 0 ? 'Successes' : 'Failures') + ", " + Math.abs(netAdvantage) + " " + (netAdvantage >= 0 ? 'Advantages' : 'Threats') + ", " + results[symbols.triumph] + " Triumphs, " + results[symbols.dispair] + " Dispairs, " + Math.abs(netForce) + " " + (netForce > 0 ? 'Lightside of the Force' : (netForce == 0 ? 'Neutral Force' : 'Darkside of the Force')) + "\n";
   console.log(netString);
   document.getElementById('resultText').value = totalsString + netString;
 }
