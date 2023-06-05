@@ -215,7 +215,7 @@ const criticalVehicleDamage = [
   "Jostled: Small explosion or impact. Crew suffer +1 strain and are disoriented for 1 round.",
   "Losing Power to Shields: -1 defense in a defense zone until repaired. If no defense, -1 strain.",
   "Knocked Off Course: On next turn, pilot cannot execute any maneuvers and must make Piloting check to regain control the difficulty of this check is equal to the current speed of the ship (ie. one difficulty [purple] die per level of the ships speed at the time this damage is dealt)",
-  "Tailspin: All attacksfrom ship suffer two setback (black) dice and all crew immobilized until end of pilot’s next turn.",
+  "Tailspin: All attacks from ship suffer two setback (black) dice and all crew immobilized until end of pilot’s next turn.",
   "Component Hit: One component inoperable until end of next round.",
   "Shields Failing: -1 defense in all zones until repaired. If no defense, -2 strain.",
   "Navicomputer Failure: Navicomputer (or R2 unit) fails until repaired. If no hyperdrive, navigation systems fail (pilot flying blind).",
