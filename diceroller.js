@@ -235,26 +235,22 @@ const criticalVehicleDamage = [
 const criticalVehicleDamageThresholds = [9, 18, 27, 36, 45, 54, 64, 72, 81, 90, 99, 108, 117, 126, 133, 138, 144, 153, 250]
 
 function rollCriticalHit(isVehicle){
-  let roll = (Math.random() * 100 | 0) + document.getElementById("critSlider").value;
-  console.log(roll);
+  let roll = (Math.random() * 100 | 0) + parseInt(document.getElementById("critSlider").value);
   if(isVehicle){
-    for(let i = 0; i < criticalVehicleDamageThresholds.length; i++){
-     console.log(criticalVehicleDamageThresholds[i]);
-     if(roll < criticalVehicleDamageThresholds[i]){
-       document.getElementById('resultText').value =  "[" + roll + "] " + criticalVehicleDamage[i];
-       return;
-      }
-    }
+    var thresholds = criticalVehicleDamageThresholds;
+    var injuries = criticalVehicleDamage;
+  }else{
+    var thresholds = criticalInjuriesThresholds;
+    var injuries = criticalInjuries;
   }
-  for(let i = 0; i < criticalInjuriesThresholds.length; i++){
-    console.log(criticalInjuriesThresholds[i]);
-    if(roll < criticalInjuriesThresholds[i]){
-      document.getElementById('resultText').value = "[" + roll + "] " + criticalInjuries[i];
+  for(let i = 0; i < thresholds.length; i++){
+    if(roll < thresholds[i]){
+      document.getElementById('resultText').value = "[" + roll + "] " + injuries[i];
       return;
     }
   }
 }
 
-function updateSliderDisplay() {
+function updateSliderDisplay(){
    document.getElementById('output').innerHTML = document.getElementById("critSlider").value
 }
