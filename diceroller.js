@@ -239,13 +239,13 @@ function rollCriticalHit(isVehicle){
   if(isVehicle){
     for(let i = 0; i < criticalVehicleDamageThresholds.length; i++){
      if(roll < criticalVehicleDamageThresholds[i]){
-       return "[" + roll + "] " + criticalVehicleDamage[i];
+       document.getElementById('resultText').value =  "[" + roll + "] " + criticalVehicleDamage[i];
       }
     }
   }
   for(let i = 0; i < criticalInjuriesThresholds.length; i++){
     if(roll < criticalInjuriesThresholds[i]){
-      return "[" + roll + "] " + criticalInjuries[i];
+      document.getElementById('resultText').value = "[" + roll + "] " + criticalInjuries[i];
     }
   }
 }
