@@ -236,16 +236,21 @@ const criticalVehicleDamageThresholds = [9, 18, 27, 36, 45, 54, 64, 72, 81, 90, 
 
 function rollCriticalHit(isVehicle){
   let roll = (Math.random() * 100 | 0) + document.getElementById("critSlider").value;
+  console.log(roll);
   if(isVehicle){
     for(let i = 0; i < criticalVehicleDamageThresholds.length; i++){
+     console.log(criticalVehicleDamageThresholds[i]);
      if(roll < criticalVehicleDamageThresholds[i]){
        document.getElementById('resultText').value =  "[" + roll + "] " + criticalVehicleDamage[i];
+       return;
       }
     }
   }
   for(let i = 0; i < criticalInjuriesThresholds.length; i++){
+    console.log(criticalInjuriesThresholds[i]);
     if(roll < criticalInjuriesThresholds[i]){
       document.getElementById('resultText').value = "[" + roll + "] " + criticalInjuries[i];
+      return;
     }
   }
 }
