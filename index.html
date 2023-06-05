@@ -61,11 +61,13 @@
     <textarea id="resultText" rows="10" style="width: 600px; max-width: 600px;">Results will appear here...</textarea>
   </div>
   
-  <div>
-    <output id="output"></output>
-    <input id="critSlider" type="range" min="0" max="150" step="10"  value="0" oninput="updateSliderDisplay()">
-    <input type="button" value="Roll Crit" onclick="rollCriticalHit(false)">
-    <input type="button" value="Roll Vehicle Crit" onclick="rollCriticalHit(true)">
+  <div style="padding-top: 20px">
+    <span><output id="output" style="color: #ffffff; text-align: center;"></output></span>
+    <span><input id="critSlider" type="range" min="0" max="150" step="10"  value="0" oninput="updateSliderDisplay()"></span>
+    <span>
+      <input type="button" value="Roll Crit" onclick="rollCriticalHit(false)">
+      <input type="button" value="Roll Vehicle Crit" onclick="rollCriticalHit(true)">
+    </span>
   </div>
   
   <h2>Instructions:</h2>
