@@ -61,6 +61,13 @@
     <textarea id="resultText" rows="10" style="width: 600px; max-width: 600px;">Results will appear here...</textarea>
   </div>
   
+  <div>
+    <output id="output"></output>
+    <input id="critSlider" type="range" min="0" max="150" step="10"  value="0" oninput="updateSliderDisplay()">
+    <input type="button" value="Roll Crit" onclick="rollCriticalHit(false)">
+    <input type="button" value="Roll Vehicle Crit" onclick="rollCriticalHit(true)">
+  </div>
+  
   <h2>Instructions:</h2>
   <p style="margin-left: auto; margin-right: auto;">
     Use the add and remove buttons for each of the various dice types to build your dice pool. 
