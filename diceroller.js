@@ -1,14 +1,14 @@
-const types = {
-  boost: 0,
-  setback: 1,
-  ability: 2,
-  difficulty: 3,
-  proficiency: 4,
-  challenge: 5,
-  force: 6
+const types = { //Enumerate the seven types of starwars dice.
+  boost: 0,     //blue
+  setback: 1,   //black
+  ability: 2,   //green
+  difficulty: 3,//purple
+  proficiency: 4,//yellow
+  challenge: 5, //red
+  force: 6      //white
 }
 
-const symbols = {
+const symbols = { //Enumerate the nine types of symbols that appear on the dice.
   none: 0,
   success: 1,
   failure: 2,
@@ -20,7 +20,7 @@ const symbols = {
   dark: 8
 }
 
-class die {
+class die { //dice class for creating specific types of dice and for rolling them.
   constructor(type){
     switch(type){
       case types.ability:
@@ -116,7 +116,7 @@ class die {
         ];
         break;
       default:
-        console.log("Unrecognized diece type!");
+        console.log("Unrecognized die type! Type must be [0,6].");
     }
   }
 
@@ -125,9 +125,9 @@ class die {
   }
 }
 
-var dicepool = [0, 0, 0, 0, 0, 0, 0];
+var dicepool = [0, 0, 0, 0, 0, 0, 0]; //variable used to keep track of how many dice of each type aree in the dicepool to be rolled
 
-function syncDicePoolCounters(){
+function syncDicePoolCounters(){ //ensure that the UI reflects the number of dice in the dicepool
   document.getElementById('numBoost').innerHTML = dicepool[types.boost];
   document.getElementById('numSetback').innerHTML = dicepool[types.setback];
   document.getElementById('numAbility').innerHTML = dicepool[types.ability];
@@ -137,46 +137,46 @@ function syncDicePoolCounters(){
   document.getElementById('numForce').innerHTML = dicepool[types.force];
 }
 
-function addDiceToPool(type){
+function addDiceToPool(type){ //add a die to the dicepool
   dicepool[type]++;
   syncDicePoolCounters();
 }
 
-function removeDiceFromPool(type){
+function removeDiceFromPool(type){ //remove a die from the dicepool
   if(dicepool[type] > 0){
     dicepool[type]--;
     syncDicePoolCounters();
   }
 }
 
-function resetDicePool(){
+function resetDicePool(){ //zero the dicepool
   dicepool = [0, 0, 0, 0, 0, 0, 0];
   syncDicePoolCounters();
 }
 
-function rollDicePool(){
-  let results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-  for(let dicetype = 0; dicetype < 7; dicetype++){
-    if(dicepool[dicetype] > 0){
-      let d = new die(dicetype);
-      for(let rolls = 0; rolls < dicepool[dicetype]; rolls++){
-        let side = d.roll();
-        results[side[0]]++;
-        results[side[1]]++;
+function rollDicePool(){ //roll the dice
+  let results = [0, 0, 0, 0, 0, 0, 0, 0, 0]; //store the total number of times each symbol type is rolled on all the dice
+  for(let dicetype = 0; dicetype < 7; dicetype++){ //for each type of dice
+    if(dicepool[dicetype] > 0){ //if any dice of that type are in the current dicepool
+      let d = new die(dicetype); //create a die of that type
+      for(let rolls = 0; rolls < dicepool[dicetype]; rolls++){ //roll the new die a  umber of times equal to the number of dice of that type in the dicepool
+        let side = d.roll(); //roll the die
+        results[side[0]]++; //record its first symbol
+        results[side[1]]++; //record its second symbol
       }
     }
   }
-  let netSuccess = results[symbols.success] - results[symbols.failure];
-  let netAdvantage = results[symbols.advantage] - results[symbols.threat];
-  let netForce = results[symbols.light] - results[symbols.dark];
+  let netSuccess = results[symbols.success] - results[symbols.failure]; //calculate how successful the roll was
+  let netAdvantage = results[symbols.advantage] - results[symbols.threat]; //calculate how advantageous the roll was
+  let netForce = results[symbols.light] - results[symbols.dark]; //calculate if the roll was more dark or light
   let totalsString = "Successes: " + results[symbols.success] + "\nFailures: " + results[symbols.failure] + "\nAdvantages: " + results[symbols.advantage] + "\nThreats: " + results[symbols.threat] + "\nTriumphs: " + results[symbols.triumph] + "\nDispairs: " + results[symbols.dispair] + "\nLightside: " + results[symbols.light] + "\nDarkside: " + results[symbols.dark] + "\n";
-  console.log(totalsString);
+  console.log(totalsString); //display the results to the user
   let netString = "Net roll: " + Math.abs(netSuccess) + " " + (netSuccess >= 0 ? 'Successes' : 'Failures') + ", " + Math.abs(netAdvantage) + " " + (netAdvantage >= 0 ? 'Advantages' : 'Threats') + ", " + results[symbols.triumph] + " Triumphs, " + results[symbols.dispair] + " Dispairs, " + Math.abs(netForce) + " " + (netForce > 0 ? 'Lightside of the Force' : (netForce == 0 ? 'Neutral Force' : 'Darkside of the Force')) + "\n";
-  console.log(netString);
+  console.log(netString); //display the  et roll results to the user
   document.getElementById('resultText').value = totalsString + netString;
 }
 
-const criticalInjuries = [
+const criticalInjuries = [ //list all the types of personal injuries that can occur in the game
   "Minor Nick: 1 strain",
   "Slowed: Can only act during last allied initiative slot on next turn",
   "Sudden Jolt: Drop item in hand",
@@ -208,9 +208,9 @@ const criticalInjuries = [
   "Dead"
 ]
 
-const criticalInjuriesThresholds = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105,110, 115,120, 125, 130, 140, 150, 250]
+const criticalInjuriesThresholds = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105,110, 115,120, 125, 130, 140, 150, 250] //list the threshold for each type of personal injury
 
-const criticalVehicleDamage = [
+const criticalVehicleDamage = [ //list all the kinds of vehilce damage that can happen in the game
   "Mechnical Stress: +1 system strain",
   "Jostled: Small explosion or impact. Crew suffer +1 strain and are disoriented for 1 round.",
   "Losing Power to Shields: -1 defense in a defense zone until repaired. If no defense, -1 strain.",
@@ -232,25 +232,20 @@ const criticalVehicleDamage = [
   "Vaporized: Ship is destroyed in an impressive fireball. Nothing survives."
 ]
 
-const criticalVehicleDamageThresholds = [9, 18, 27, 36, 45, 54, 64, 72, 81, 90, 99, 108, 117, 126, 133, 138, 144, 153, 250]
+const criticalVehicleDamageThresholds = [9, 18, 27, 36, 45, 54, 64, 72, 81, 90, 99, 108, 117, 126, 133, 138, 144, 153, 250] //list the thresholds for different types of vehicle damge
 
-function rollCriticalHit(isVehicle){
-  let roll = (Math.random() * 100 | 0) + parseInt(document.getElementById("critSlider").value);
-  if(isVehicle){
-    var thresholds = criticalVehicleDamageThresholds;
-    var injuries = criticalVehicleDamage;
-  }else{
-    var thresholds = criticalInjuriesThresholds;
-    var injuries = criticalInjuries;
-  }
-  for(let i = 0; i < thresholds.length; i++){
-    if(roll < thresholds[i]){
-      document.getElementById('resultText').value = "[" + roll + "] " + injuries[i];
+function rollCriticalHit(isVehicle){ //roll a critical injury
+  let roll = (Math.random() * 100 | 0) + parseInt(document.getElementById("critSlider").value); //get a random number from 0 to 100 and add the value from the UI slider
+  var thresholds = isVehicle ? criticalVehicleDamageThresholds : criticalInjuriesThresholds; //select the correct threshold list for the situation
+  var injuries = isVehicle ? criticalVehicleDamage : criticalInjuries; //select the correct injury list for the situation
+  for(let i = 0; i < thresholds.length; i++){ //compare the threshold list to the value rolled to determine which injury occurs
+    if(roll < thresholds[i]){ //linear search of 19 items. Binary search would be more efficient, but seems overkill for such a small set.
+      document.getElementById('resultText').value = "[" + roll + "] " + injuries[i]; //display result to the user
       return;
     }
   }
 }
 
-function updateSliderDisplay(){
+function updateSliderDisplay(){ //update slider display for the user so that he or she can tell what value has been selected
    document.getElementById('output').innerHTML = document.getElementById("critSlider").value
 }
